@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_BusStopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bus_cake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_pontbus" Type="int" />
+          <Property Name="Id_location" Type="int" />
+          <Property Name="status" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="bus_information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pointbus" Type="int" />
+          <Property Name="id_mabus" Type="int" />
+          <Property Name="status" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="bus_location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lon" Type="float" />
+          <Property Name="name" Type="nvarchar(max)" />
+          <Property Name="last_date" Type="date" />
+          <Property Name="insert_date" Type="date" />
+          <Property Name="status" Type="nvarchar(max)" />
+          <Property Name="pid" Type="int" />
+        </EntityType>
+        <EntityType Name="bus_mabus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="1000" />
+          <Property Name="start_bus" Type="nvarchar" MaxLength="1000" />
+          <Property Name="end_bus" Type="nvarchar" MaxLength="1000" />
+          <Property Name="status" Type="nvarchar" MaxLength="1000" />
+          <Property Name="time_stop" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="bus_pointbus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="lat" Type="float" />
+          <Property Name="lon" Type="float" />
+          <Property Name="last_date" Type="date" />
+          <Property Name="insert_date" Type="date" />
+          <Property Name="status" Type="nvarchar(max)" />
+          <Property Name="images" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="db_BusStopModelStoreContainer">
+          <EntitySet Name="bus_cake" EntityType="Self.bus_cake" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bus_information" EntityType="Self.bus_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bus_location" EntityType="Self.bus_location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bus_mabus" EntityType="Self.bus_mabus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bus_pointbus" EntityType="Self.bus_pointbus" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_BusStopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bus_cake">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_pontbus" Type="Int32" />
+          <Property Name="Id_location" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bus_information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pointbus" Type="Int32" />
+          <Property Name="id_mabus" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bus_location">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="last_date" Type="DateTime" Precision="0" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bus_mabus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="start_bus" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="end_bus" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="time_stop" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="bus_pointbus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lat" Type="Double" />
+          <Property Name="lon" Type="Double" />
+          <Property Name="last_date" Type="DateTime" Precision="0" />
+          <Property Name="insert_date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="images" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="db_BusStopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bus_cake" EntityType="Self.bus_cake" />
+          <EntitySet Name="bus_information" EntityType="Self.bus_information" />
+          <EntitySet Name="bus_location" EntityType="Self.bus_location" />
+          <EntitySet Name="bus_mabus" EntityType="Self.bus_mabus" />
+          <EntitySet Name="bus_pointbus" EntityType="Self.bus_pointbus" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_BusStopModelStoreContainer" CdmEntityContainer="db_BusStopEntities">
+          <EntitySetMapping Name="bus_cake">
+            <EntityTypeMapping TypeName="db_BusStopModel.bus_cake">
+              <MappingFragment StoreEntitySet="bus_cake">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_pontbus" ColumnName="Id_pontbus" />
+                <ScalarProperty Name="Id_location" ColumnName="Id_location" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bus_information">
+            <EntityTypeMapping TypeName="db_BusStopModel.bus_information">
+              <MappingFragment StoreEntitySet="bus_information">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="id_pointbus" ColumnName="id_pointbus" />
+                <ScalarProperty Name="id_mabus" ColumnName="id_mabus" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bus_location">
+            <EntityTypeMapping TypeName="db_BusStopModel.bus_location">
+              <MappingFragment StoreEntitySet="bus_location">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="last_date" ColumnName="last_date" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bus_mabus">
+            <EntityTypeMapping TypeName="db_BusStopModel.bus_mabus">
+              <MappingFragment StoreEntitySet="bus_mabus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_bus" ColumnName="start_bus" />
+                <ScalarProperty Name="end_bus" ColumnName="end_bus" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="time_stop" ColumnName="time_stop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bus_pointbus">
+            <EntityTypeMapping TypeName="db_BusStopModel.bus_pointbus">
+              <MappingFragment StoreEntitySet="bus_pointbus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lat" ColumnName="lat" />
+                <ScalarProperty Name="lon" ColumnName="lon" />
+                <ScalarProperty Name="last_date" ColumnName="last_date" />
+                <ScalarProperty Name="insert_date" ColumnName="insert_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="images" ColumnName="images" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
